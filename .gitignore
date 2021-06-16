@@ -1,0 +1,11 @@
+*node_modules
+*target
+*.editorconfig
+*.eslintrc.json
+*prettier.config.js
+*yarn.lock
+*.settings
+*.classpath
+*.factorypath
+*.project
+*.vscode

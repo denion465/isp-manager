@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: pizza-git
+    environment:
+      POSTGRES_PASSWORD: docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgres
+
+volumes:
+  data:

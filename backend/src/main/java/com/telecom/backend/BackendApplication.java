@@ -1,13 +1,13 @@
-package backend.pizzaria;
+package com.telecom.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PizzariaApplication {
+public class BackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PizzariaApplication.class, args);
+		SpringApplication.run(BackendApplication.class, args);
 	}
 
 }

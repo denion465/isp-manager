@@ -1,8 +1,6 @@
 package com.telecom.backend.model;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +9,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.telecom.backend.enums.Permissao;
 import com.telecom.backend.util.ConfigUrl;
 
@@ -57,8 +53,4 @@ public class Usuario {
   @Column(name = "permissao", nullable = false)
   @Enumerated(EnumType.STRING)
   private Permissao permissao;
-
-  @JsonIgnore
-  @OneToMany(mappedBy = "usuario")
-  private List<Pedido> pedidos = new ArrayList<>();
 }

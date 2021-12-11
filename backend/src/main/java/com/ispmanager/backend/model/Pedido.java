@@ -1,4 +1,4 @@
-package com.telecom.backend.model;
+package com.ispmanager.backend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -11,20 +11,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.telecom.backend.enums.Velocidade;
-import com.telecom.backend.util.ConfigUrl;
-
+import com.ispmanager.backend.enums.Velocidade;
+import com.ispmanager.backend.util.ConfigUrl;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(schema = ConfigUrl.SCHEMA_TELECOM_SYS, name = "pedido")
+@Table(schema = ConfigUrl.SCHEMA_ISP_MANAGER, name = "pedido")
 public class Pedido {
   @Id @Column(name = "id")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedido_id_seq")
-  @SequenceGenerator(name = "pedido_id_seq", sequenceName = ConfigUrl.SCHEMA_TELECOM_SYS +
+  @SequenceGenerator(name = "pedido_id_seq", sequenceName = ConfigUrl.SCHEMA_ISP_MANAGER +
     ".pedido_id_seq", allocationSize = 1)
   @EqualsAndHashCode.Include
   private Integer id;

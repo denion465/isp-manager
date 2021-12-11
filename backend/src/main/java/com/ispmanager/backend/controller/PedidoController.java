@@ -1,11 +1,11 @@
-package com.telecom.backend.controller;
+package com.ispmanager.backend.controller;
 
 import java.util.List;
 
-import com.telecom.backend.exception.EntidadeNaoEncontradaException;
-import com.telecom.backend.model.Pedido;
-import com.telecom.backend.repository.PedidoRepository;
-import com.telecom.backend.service.PedidoService;
+import com.ispmanager.backend.exception.EntidadeNaoEncontradaException;
+import com.ispmanager.backend.model.Pedido;
+import com.ispmanager.backend.repository.PedidoRepository;
+import com.ispmanager.backend.service.PedidoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

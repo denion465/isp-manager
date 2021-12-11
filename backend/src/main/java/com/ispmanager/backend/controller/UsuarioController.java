@@ -1,10 +1,10 @@
-package com.telecom.backend.controller;
+package com.ispmanager.backend.controller;
 
 import java.util.List;
 
-import com.telecom.backend.model.Usuario;
-import com.telecom.backend.repository.UsuarioRepository;
-import com.telecom.backend.service.UsuarioService;
+import com.ispmanager.backend.model.Usuario;
+import com.ispmanager.backend.repository.UsuarioRepository;
+import com.ispmanager.backend.service.UsuarioService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

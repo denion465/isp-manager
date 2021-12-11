@@ -1,6 +1,6 @@
-package com.telecom.backend.repository;
+package com.ispmanager.backend.repository;
 
-import com.telecom.backend.model.Usuario;
+import com.ispmanager.backend.model.Usuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

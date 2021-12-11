@@ -1,4 +1,4 @@
-package com.telecom.backend.model;
+package com.ispmanager.backend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

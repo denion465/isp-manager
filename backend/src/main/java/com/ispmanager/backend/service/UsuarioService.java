@@ -1,7 +1,7 @@
-package com.telecom.backend.service;
+package com.ispmanager.backend.service;
 
-import com.telecom.backend.model.Usuario;
-import com.telecom.backend.repository.UsuarioRepository;
+import com.ispmanager.backend.model.Usuario;
+import com.ispmanager.backend.repository.UsuarioRepository;
 
 import org.springframework.stereotype.Service;
 

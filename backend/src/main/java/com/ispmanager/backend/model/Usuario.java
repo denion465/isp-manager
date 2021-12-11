@@ -1,4 +1,4 @@
-package com.telecom.backend.model;
+package com.ispmanager.backend.model;
 
 import java.time.LocalDateTime;
 
@@ -12,8 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.telecom.backend.enums.Permissao;
-import com.telecom.backend.util.ConfigUrl;
+import com.ispmanager.backend.enums.Permissao;
+import com.ispmanager.backend.util.ConfigUrl;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -22,11 +22,11 @@ import lombok.EqualsAndHashCode;
 
 @Data @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(schema = ConfigUrl.SCHEMA_TELECOM_SYS, name = "usuario")
+@Table(schema = ConfigUrl.SCHEMA_ISP_MANAGER, name = "usuario")
 public class Usuario {
   @Id @Column(name = "id")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_id_seq")
-  @SequenceGenerator(name = "usuario_id_seq", sequenceName = ConfigUrl.SCHEMA_TELECOM_SYS +
+  @SequenceGenerator(name = "usuario_id_seq", sequenceName = ConfigUrl.SCHEMA_ISP_MANAGER +
     ".usuario_id_seq", allocationSize = 1)
   @EqualsAndHashCode.Include
   private Integer id;

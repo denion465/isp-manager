@@ -1,4 +1,4 @@
-package com.telecom.backend.enums;
+package com.ispmanager.backend.enums;
 
 import lombok.Getter;
 

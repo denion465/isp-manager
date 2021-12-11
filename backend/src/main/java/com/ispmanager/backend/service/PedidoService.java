@@ -1,10 +1,10 @@
-package com.telecom.backend.service;
+package com.ispmanager.backend.service;
 
-import com.telecom.backend.exception.EntidadeNaoEncontradaException;
-import com.telecom.backend.model.Pedido;
-import com.telecom.backend.model.Usuario;
-import com.telecom.backend.repository.PedidoRepository;
-import com.telecom.backend.repository.UsuarioRepository;
+import com.ispmanager.backend.exception.EntidadeNaoEncontradaException;
+import com.ispmanager.backend.model.Pedido;
+import com.ispmanager.backend.model.Usuario;
+import com.ispmanager.backend.repository.PedidoRepository;
+import com.ispmanager.backend.repository.UsuarioRepository;
 
 import org.springframework.stereotype.Service;
 

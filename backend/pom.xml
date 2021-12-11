@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.telecom</groupId>
+	<groupId>com.ispmanager</groupId>
 	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>backend</name>
-	<description>Sistema Telecom</description>
+	<description>Dashboard Isp Manager - Gerenciamento de clientes</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

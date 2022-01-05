@@ -2,9 +2,9 @@ package com.ispmanager.backend.controller;
 
 import java.util.List;
 
-import com.ispmanager.backend.model.Usuario;
-import com.ispmanager.backend.repository.UsuarioRepository;
-import com.ispmanager.backend.service.UsuarioService;
+import com.ispmanager.backend.model.User;
+import com.ispmanager.backend.repository.UserRepository;
+import com.ispmanager.backend.service.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-
-@RestController @RequestMapping("/usuario")
+@RestController
+@RequestMapping("/user")
 @RequiredArgsConstructor
-public class UsuarioController {
+public class UserController {
 
-  private final UsuarioRepository usuarioRepository;
-  private final UsuarioService usuarioService;
+  private final UserRepository usuarioRepository;
+  private final UserService userService;
 
   @GetMapping
-  public List<Usuario> listar() {
+  public List<User> listUsers() {
     return usuarioRepository.findAll();
   }
 
   @PostMapping
-  public Usuario cadastrar(@RequestBody Usuario usuario) {
-    return usuarioService.salvar(usuario);
+  public User registerUser(@RequestBody User user) {
+    return userService.saveUser(user);
   }
 }

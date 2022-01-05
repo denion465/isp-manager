@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.ispmanager.backend.enums.Permissao;
+import com.ispmanager.backend.enums.Permission;
 import com.ispmanager.backend.util.ConfigUrl;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -20,37 +20,39 @@ import org.hibernate.annotations.CreationTimestamp;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-@Data @Entity
+@Data
+@Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Table(schema = ConfigUrl.SCHEMA_ISP_MANAGER, name = "usuario")
-public class Usuario {
-  @Id @Column(name = "id")
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_id_seq")
-  @SequenceGenerator(name = "usuario_id_seq", sequenceName = ConfigUrl.SCHEMA_ISP_MANAGER +
-    ".usuario_id_seq", allocationSize = 1)
+@Table(schema = ConfigUrl.SCHEMA_ISP_MANAGER, name = "user")
+public class User {
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_seq")
+  @SequenceGenerator(name = "user_id_seq", sequenceName = ConfigUrl.SCHEMA_ISP_MANAGER +
+    ".user_id_seq", allocationSize = 1)
   @EqualsAndHashCode.Include
   private Integer id;
 
-  @Column(name = "nome", nullable = false)
-  private String nome;
+  @Column(nullable = false)
+  private String name;
 
-  @Column(name = "cpf", nullable = false)
+  @Column(nullable = false)
   private String cpf;
 
   @Column(name = "rg", nullable = false)
   private String rg;
 
-  @Column(name = "email", nullable = false)
+  @Column(nullable = false)
   private String email;
 
-  @Column(name = "senha", nullable = false)
-  private String senha;
+  @Column(nullable = false)
+  private String password;
 
   @CreationTimestamp
-  @Column(nullable = false, columnDefinition = "timestamp")
-  private LocalDateTime data_cadastro;
+  @Column(name = "registration_date", nullable = false, columnDefinition = "timestamp")
+  private LocalDateTime registrationDate;
 
   @Column(name = "permissao", nullable = false)
   @Enumerated(EnumType.STRING)
-  private Permissao permissao;
+  private Permission permission;
 }

@@ -3,9 +3,9 @@ package com.ispmanager.backend.controller;
 import java.util.List;
 
 import com.ispmanager.backend.exception.EntidadeNaoEncontradaException;
-import com.ispmanager.backend.model.Pedido;
-import com.ispmanager.backend.repository.PedidoRepository;
-import com.ispmanager.backend.service.PedidoService;
+import com.ispmanager.backend.model.Order;
+import com.ispmanager.backend.repository.OrderRepository;
+import com.ispmanager.backend.service.OrderService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,25 +17,25 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-@RestController @RequestMapping("/pedidos")
+@RestController
+@RequestMapping("/orders")
 @RequiredArgsConstructor
-public class PedidoController {
+public class OrderController {
 
-  private final PedidoRepository pedidoRepository;
-  private final PedidoService pedidoService;
+  private final OrderRepository orderRepository;
+  private final OrderService orderService;
 
   @GetMapping
-  public List<Pedido> listar() {
-    return pedidoRepository.findAll();
+  public List<Order> listAllOrders() {
+    return orderRepository.findAll();
   }
 
   @PostMapping
-  public ResponseEntity<?> adicionar(@RequestBody Pedido pedido) {
+  public ResponseEntity<?> createOrder(@RequestBody Order order) {
     try {
-      pedido = pedidoService.salvar(pedido);
+      order = orderService.saveOrder(order);
 
-      return ResponseEntity.status(HttpStatus.CREATED).body(pedido);
+      return ResponseEntity.status(HttpStatus.CREATED).body(order);
 
     } catch (EntidadeNaoEncontradaException e) {
 

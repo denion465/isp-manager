@@ -31,7 +31,10 @@ public class User {
   @SequenceGenerator(name = "user_id_seq", sequenceName = ConfigUrl.SCHEMA_ISP_MANAGER +
     ".user_id_seq", allocationSize = 1)
   @EqualsAndHashCode.Include
-  private Integer id;
+  private int id;
+
+  @Column(name = "public_id",nullable = false)
+  private String publicId;
 
   @Column(nullable = false)
   private String name;
@@ -39,7 +42,7 @@ public class User {
   @Column(nullable = false)
   private String cpf;
 
-  @Column(name = "rg", nullable = false)
+  @Column(nullable = false)
   private String rg;
 
   @Column(nullable = false)
@@ -48,11 +51,14 @@ public class User {
   @Column(nullable = false)
   private String password;
 
+  @Column(name = "encrypted_password",nullable = false)
+  private String encryptedPassword;
+
   @CreationTimestamp
   @Column(name = "registration_date", nullable = false, columnDefinition = "timestamp")
   private LocalDateTime registrationDate;
 
-  @Column(name = "permissao", nullable = false)
+  @Column(nullable = false)
   @Enumerated(EnumType.STRING)
   private Permission permission;
 }

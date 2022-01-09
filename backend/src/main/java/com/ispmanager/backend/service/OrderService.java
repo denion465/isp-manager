@@ -17,7 +17,7 @@ public class OrderService {
   private final UserRepository userRepository;
 
   public Order saveOrder(Order order) {
-    Integer userId = order.getUser().getId();
+    int userId = order.getUser().getId();
 
     User user = userRepository.findById(userId)
       .orElseThrow(() -> new EntidadeNaoEncontradaException(

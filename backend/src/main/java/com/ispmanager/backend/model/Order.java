@@ -27,7 +27,7 @@ public class Order {
   @SequenceGenerator(name = "order_id_seq", sequenceName = ConfigUrl.SCHEMA_ISP_MANAGER +
     ".order_id_seq", allocationSize = 1)
   @EqualsAndHashCode.Include
-  private Integer id;
+  private int id;
 
   @Embedded
   private Address address;

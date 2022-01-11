@@ -2,7 +2,7 @@ package com.ispmanager.backend.service;
 
 import com.ispmanager.backend.exception.EntidadeNaoEncontradaException;
 import com.ispmanager.backend.model.Order;
-import com.ispmanager.backend.model.User;
+import com.ispmanager.backend.model.UserEntity;
 import com.ispmanager.backend.repository.OrderRepository;
 import com.ispmanager.backend.repository.UserRepository;
 
@@ -19,7 +19,7 @@ public class OrderService {
   public Order saveOrder(Order order) {
     int userId = order.getUser().getId();
 
-    User user = userRepository.findById(userId)
+    UserEntity user = userRepository.findById(userId)
       .orElseThrow(() -> new EntidadeNaoEncontradaException(
         String.format("Não existe cadastro de usuario com id %d", userId)
       ));

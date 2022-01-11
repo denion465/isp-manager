@@ -1,12 +1,15 @@
 package com.ispmanager.backend.service.impl;
 
+import java.util.ArrayList;
+
 import com.ispmanager.backend.dto.UserDto;
-import com.ispmanager.backend.model.User;
+import com.ispmanager.backend.model.UserEntity;
 import com.ispmanager.backend.repository.UserRepository;
 import com.ispmanager.backend.service.UserService;
 import com.ispmanager.backend.util.Utils;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,19 +26,19 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public UserDto createUser(UserDto userDto) {
-    User storedUserDetails = userRepository.findByEmail(userDto.getEmail());
+    UserEntity storedUserDetails = userRepository.findByEmail(userDto.getEmail());
 
     if (storedUserDetails != null)
       throw new RuntimeException("Usuário já cadastrado");
 
-    User userModel = new User();
+    UserEntity userModel = new UserEntity();
     BeanUtils.copyProperties(userDto, userModel);
 
     String publicUserId = utils.generatePublicId(30);
     userModel.setPublicId(publicUserId);
     userModel.setEncryptedPassword(bcryptPasswordEncoder.encode(userDto.getPassword()));
 
-    User storedUserDetail = userRepository.save(userModel);
+    UserEntity storedUserDetail = userRepository.save(userModel);
 
     UserDto returnValue = new UserDto();
     BeanUtils.copyProperties(storedUserDetail, returnValue);
@@ -44,8 +47,11 @@ public class UserServiceImpl implements UserService {
   }
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return null;
-	}
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    UserEntity userEntity = userRepository.findByEmail(email);
 
+    if (userEntity == null) throw new UsernameNotFoundException(email);
+
+    return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(), new ArrayList<>());
+	}
 }

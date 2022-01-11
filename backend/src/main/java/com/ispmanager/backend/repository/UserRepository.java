@@ -1,9 +1,9 @@
 package com.ispmanager.backend.repository;
 
-import com.ispmanager.backend.model.User;
+import com.ispmanager.backend.model.UserEntity;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository<User, Integer> {
-  User findByEmail(String email);
+public interface UserRepository extends CrudRepository<UserEntity, Integer> {
+  UserEntity findByEmail(String email);
 }

@@ -5,12 +5,14 @@ import javax.transaction.Transactional;
 // import java.util.List;
 
 import com.ispmanager.backend.dto.UserDto;
-import com.ispmanager.backend.model.User;
+import com.ispmanager.backend.model.UserEntity;
 import com.ispmanager.backend.model.response.UserRest;
 // import com.ispmanager.backend.repository.UserRepository;
 import com.ispmanager.backend.service.UserService;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 // import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +35,7 @@ public class UserController {
 
   @Transactional
   @PostMapping
-  public UserRest registerUser(@RequestBody User user) {
+  public ResponseEntity<UserRest> registerUser(@RequestBody UserEntity user) {
     UserDto userDto = new UserDto();
 
     BeanUtils.copyProperties(user, userDto);
@@ -43,6 +45,6 @@ public class UserController {
 
     BeanUtils.copyProperties(createUser, returnValue);
 
-    return returnValue;
+    return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
   }
 }

@@ -24,7 +24,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(schema = ConfigUrl.SCHEMA_ISP_MANAGER, name = "user")
-public class User {
+public class UserEntity {
   @Id
   @Column(name = "id")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_seq")
